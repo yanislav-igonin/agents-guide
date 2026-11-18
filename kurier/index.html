@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#05060f">
+<meta name="description" content="Ночной курьер — неоновая аркада: развози посылки по ночному городу, уворачивайся от машин и успевай до закрытия смены.">
+<title>НОЧНОЙ КУРЬЕР — неоновая аркада</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2307080f'/%3E%3Crect x='5' y='12' width='17' height='9' rx='2' fill='%2335f2ff'/%3E%3Crect x='22' y='14' width='5' height='7' rx='2' fill='%23ff2f8e'/%3E%3Crect x='7' y='14' width='6' height='4' rx='1' fill='%2307080f'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="game">
+  <canvas id="cv"></canvas>
+
+  <div id="hud" class="hidden">
+    <div class="hud-block">
+      <div class="hud-item"><span class="lbl">Счёт</span><span id="score" class="num">0</span></div>
+      <div class="hud-item"><span class="lbl">Рекорд</span><span id="best" class="num dim">0</span></div>
+      <div id="combo" class="combo hidden"></div>
+    </div>
+
+    <div class="hud-block center">
+      <div class="hud-item"><span class="lbl">Время</span><span id="time" class="num">60</span></div>
+      <div id="tbar"><i id="tfill"></i></div>
+      <div id="hint" class="hint hidden">Тротуар тоже дорога — заезжай прямо к двери</div>
+    </div>
+
+    <div class="hud-block right">
+      <div class="slots-wrap" title="Посылки в фургоне">
+        <span class="lbl">Кузов</span>
+        <div id="slots" class="slots">
+          <i class="slot"></i><i class="slot"></i><i class="slot"></i>
+        </div>
+      </div>
+      <div class="hud-btns">
+        <button id="btnSound" class="icon-btn" type="button" aria-label="Звук">♪</button>
+        <button id="btnPause" class="icon-btn" type="button" aria-label="Пауза">❚❚</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="loading" class="screen plain">
+    <div class="boot">Загружаем ночной город…</div>
+  </div>
+
+  <div id="splash" class="screen hidden">
+    <div class="veil"></div>
+    <div class="screen-inner">
+      <p class="kicker">Развоз посылок · ночная смена · один экран</p>
+      <h1>Ночной курьер</h1>
+      <p class="sub">Собирай посылки, вези их в подсвеченные дома, не бей чужие машины.</p>
+      <button id="btnPlay" class="btn" type="button">Играть</button>
+      <div class="howto">
+        <p><b>Клавиатура:</b> W A S D или стрелки — газ и руль, P — пауза, M — звук</p>
+        <p><b>Телефон:</b> зажми палец на экране и веди — фургон поедет за пальцем</p>
+        <p><b>Доставка:</b> посылка = 100 очков × множитель, доставка даёт +6 секунд</p>
+      </div>
+      <p class="stat">Рекорд: <span id="bestSplash">0</span> · Доставок за рекорд: <span id="bestSplashDeliv">0</span></p>
+      <p class="credit">Арт и музыка сгенерированы через Polza API</p>
+    </div>
+  </div>
+
+  <div id="over" class="screen hidden">
+    <div class="veil strong"></div>
+    <div class="screen-inner">
+      <h2>Смена закрыта</h2>
+      <p class="sub" id="overReason">Время вышло.</p>
+      <div class="result">
+        <div><span class="lbl">Счёт</span><span id="overScore" class="big">0</span></div>
+        <div><span class="lbl">Доставок</span><span id="overDeliv" class="big">0</span></div>
+        <div><span class="lbl">Рекорд</span><span id="overBest" class="big dim">0</span></div>
+      </div>
+      <p id="newBest" class="newbest hidden">Новый рекорд!</p>
+      <button id="btnAgain" class="btn" type="button">Ещё заезд</button>
+      <p class="credit">Арт и музыка сгенерированы через Polza API</p>
+    </div>
+  </div>
+
+  <div id="pause" class="screen hidden">
+    <div class="veil strong"></div>
+    <div class="screen-inner">
+      <h2>Пауза</h2>
+      <button id="btnResume" class="btn" type="button">Продолжить</button>
+      <button id="btnQuit" class="btn ghost" type="button">В меню</button>
+    </div>
+  </div>
+
+  <div class="vignette"></div>
+</div>
+<noscript>Для игры нужен JavaScript — включите его в браузере.</noscript>
+<script src="game.js"></script>
+</body>
+</html>
