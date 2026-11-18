@@ -34,3 +34,5 @@ button:focus-visible, a:focus-visible { outline: 3px solid currentColor; outline
 .prompt button, .cmd button { font-family: "Jost", sans-serif; }
 
 .parts p { font-family: "Jost", sans-serif; }
+
+.parts b { font-family: "Jost", sans-serif; font-weight: 700; }
