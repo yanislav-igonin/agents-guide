@@ -1,24 +1,35 @@
 
-/* 6 · «Чек»: гайд на кассовой ленте, главный аргумент — итого 100 ₽ */
-body { margin: 0; background: #7d8590; color: #222; font: 15px/1.55 "PT Mono", monospace; }
-a { color: #222; }
-.hero, main, .foot { max-width: 520px; margin: 0 auto; background: #fbfbf8; padding: 0 22px; }
-.hero { margin-top: 28px; padding-top: 26px; -webkit-mask: radial-gradient(circle 7px at 50% 0, #0000 98%, #000) 0 0 / 18px 100%; mask: radial-gradient(circle 7px at 50% 0, #0000 98%, #000) 0 0 / 18px 100%; }
-.c { text-align: center; } h1 { font-size: 22px; text-align: center; margin: 18px 0; text-transform: uppercase; line-height: 1.25; }
-table { width: 100%; border-collapse: collapse; } td { padding: 2px 0; } td:last-child { text-align: right; }
-.total { display: flex; justify-content: space-between; font-size: 24px; font-weight: 700; border-top: 2px dashed #222; border-bottom: 2px dashed #222; padding: 6px 0; margin: 12px 0; }
-h2 { font-size: 17px; text-align: center; margin: 34px 0 12px; padding: 6px 0; border-top: 2px dashed #222; border-bottom: 2px dashed #222; text-transform: uppercase; }
-h2 .num::before { content: "ПОЗ. "; } h2 .num::after { content: " /"; }
-h3 { font-size: 15px; text-transform: uppercase; margin: 24px 0 6px; } h3::before { content: "* "; }
-.prompt, .cmd { position: relative; margin: 14px 0; padding: 10px 12px 44px; border: 1px solid #222; }
-.cmd { border-style: dashed; }
-pre { margin: 0; white-space: pre-wrap; font: 15px/1.5 "PT Mono", monospace; }
-.prompt button, .cmd button { position: absolute; left: 12px; bottom: 8px; border: 0; background: #222; color: #fbfbf8; font: 14px "PT Mono", monospace; padding: 3px 10px; cursor: pointer; }
-.prompt button::before { content: "[ "; } .prompt button::after { content: " ]"; }
-:not(pre) > code { background: #e8e8e2; padding: 0 3px; }
-.foot { text-align: center; padding: 30px 22px 40px; margin-bottom: 28px; -webkit-mask: radial-gradient(circle 7px at 50% 100%, #0000 98%, #000) 0 0 / 18px 100%; mask: radial-gradient(circle 7px at 50% 100%, #0000 98%, #000) 0 0 / 18px 100%; }
-
+/* 6 · Переписка × Аркада: ночной чат на фоне пиксельного города */
+:root { --deep: #120d2e; --in: #2d2266; --out: #ff5fa2; --lamp: #ffd27a; --text: #ece8ff; --dim: #a59bd8; }
+body { margin: 0; color: var(--text); font: 16px/1.55 "Onest", sans-serif; background: #1b1440;
+  background-image: linear-gradient(#120d2ed9, #120d2ee6), url(city.png); background-size: cover; background-position: center; background-attachment: fixed; image-rendering: pixelated; }
+a { color: var(--lamp); }
+.chatbar { position: sticky; top: 0; z-index: 2; display: flex; gap: 12px; align-items: center; padding: 10px 16px; background: var(--deep); border-bottom: 3px solid var(--in); }
+.ava { width: 40px; height: 40px; background: var(--out); color: var(--deep); display: grid; place-items: center; font: 700 22px "Pixelify Sans", sans-serif; box-shadow: 3px 3px 0 var(--lamp); }
+.chatbar b { display: block; } .chatbar span { color: var(--lamp); font-size: 14px; }
+.hero, main, .foot { max-width: 620px; margin: 0 auto; padding: 0 12px; }
+.date, h2 { display: table; margin: 24px auto 10px; padding: 4px 14px; background: var(--deep); border: 3px solid var(--in); font-size: 14px; font-weight: 600; line-height: 1.4; }
+h2 .num { font: 700 15px "Pixelify Sans", sans-serif; color: var(--lamp); } h2 .num::before { content: "LV "; } h2 .num::after { content: " ·"; color: var(--dim); }
+h1 { font: 800 28px/1.1 "Onest", sans-serif; margin: 0 0 8px; text-shadow: 3px 3px 0 var(--out); }
+.bubble, section > p, section > ul, section > ol, section > h3 { width: fit-content; max-width: 90%; margin: 5px 0; padding: 9px 13px; background: var(--in);
+  clip-path: polygon(0 6px, 6px 6px, 6px 0, calc(100% - 6px) 0, calc(100% - 6px) 6px, 100% 6px, 100% calc(100% - 6px), calc(100% - 6px) calc(100% - 6px), calc(100% - 6px) 100%, 0 100%); }
+.bubble { padding: 14px 16px; } .bubble p { margin: 0; }
+section > ul, section > ol { padding-left: 30px; }
+section > h3 { font-size: 16px; font-weight: 800; color: var(--lamp); margin-top: 14px; }
+.prompt, .cmd { position: relative; width: fit-content; max-width: 90%; margin: 8px 0 8px auto; padding: 10px 13px 30px; background: var(--out); color: var(--deep);
+  clip-path: polygon(0 6px, 6px 6px, 6px 0, calc(100% - 6px) 0, calc(100% - 6px) 6px, 100% 6px, 100% 100%, 6px 100%, 6px calc(100% - 6px), 0 calc(100% - 6px)); }
+.cmd { background: var(--lamp); }
+pre { margin: 0; white-space: pre-wrap; font: 600 16px/1.5 "Onest", sans-serif; } .cmd pre { font: 14px ui-monospace, Menlo, monospace; }
+.prompt button, .cmd button { position: absolute; right: 12px; bottom: 5px; border: 0; background: none; padding: 0; color: var(--deep); font: 700 13px "Pixelify Sans", sans-serif; cursor: pointer; }
+.prompt button::after, .cmd button::after { content: " ✓✓"; }
+:not(pre) > code { font: 0.86em ui-monospace, Menlo, monospace; background: var(--deep); padding: 0 4px; }
+.s-оглавление > ul { list-style: none; padding: 9px 13px; }
+.foot { text-align: center; color: var(--dim); font-size: 13px; padding: 30px 12px 50px; }
+* { box-sizing: border-box; } html { scroll-behavior: smooth; } h2, h3 { scroll-margin-top: 70px; }
 pre code { font: inherit; color: inherit; background: none; padding: 0; border: 0; }
+:not(pre) > code { overflow-wrap: anywhere; } .cmd pre { overflow-wrap: anywhere; }
+ul, ol { padding-left: 22px; } li { margin: 5px 0; }
 button:focus-visible, a:focus-visible { outline: 3px solid currentColor; outline-offset: 2px; }
-html { scroll-behavior: smooth; } * { box-sizing: border-box; } h2, h3 { scroll-margin-top: 12px; }
-:not(pre) > code { overflow-wrap: anywhere; } ul, ol { padding-left: 22px; } li { margin: 5px 0; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; } }
+
+.prompt button, .cmd button { font-family: "Onest", sans-serif; }

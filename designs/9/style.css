@@ -1,25 +1,29 @@
 
-/* 9 · «Плакат»: конструктивизм — красный клин, наклонный заголовок, лозунги */
-:root { --red: #d1271b; --paper: #dcd8d0; --ink: #000; }
-body { margin: 0; background: var(--paper); color: var(--ink); font: 18px/1.6 "Arsenal", sans-serif; }
-a { color: var(--red); }
-.hero { position: relative; overflow: hidden; min-height: 400px; padding: 48px 20px 30px; background: var(--paper); }
-.wedge { position: absolute; inset: 0; background: var(--red); clip-path: polygon(0 0, 100% 0, 100% 38%, 0 92%); }
-.hero h1, .slogan { position: relative; max-width: 740px; margin-left: auto; margin-right: auto; }
-h1 { font: 400 clamp(40px, 11vw, 84px)/0.95 "Russo One", sans-serif; color: #fff; transform: rotate(-6deg); transform-origin: left; margin-top: 30px; text-transform: uppercase; }
-.slogan { margin-top: 60px; font: 400 22px "Russo One", sans-serif; text-align: right; }
-main, .foot { max-width: 740px; margin: 0 auto; padding: 0 20px; }
-h2 { font: 400 26px/1.15 "Russo One", sans-serif; margin: 60px -20px 16px; padding: 12px 20px; background: var(--ink); color: #fff; transform: skewY(-2deg); text-transform: uppercase; }
-h2 .num { color: var(--red); background: #fff; padding: 0 8px; margin-right: 8px; }
-h3 { font: 400 20px "Russo One", sans-serif; margin: 30px 0 6px; color: var(--red); text-transform: uppercase; }
-.prompt, .cmd { position: relative; margin: 16px 0; padding: 14px 16px 54px 22px; background: #fff; border-left: 10px solid var(--red); }
-.cmd { border-left-color: var(--ink); }
-pre { margin: 0; white-space: pre-wrap; font: 17px/1.5 "Arsenal", sans-serif; } .cmd pre { font: 15px ui-monospace, Menlo, monospace; }
-.prompt button, .cmd button { position: absolute; left: 22px; bottom: 12px; border: 0; background: var(--red); color: #fff; padding: 6px 14px; font: 400 14px "Russo One", sans-serif; cursor: pointer; text-transform: uppercase; }
-:not(pre) > code { font: 0.86em ui-monospace, Menlo, monospace; background: #fff; padding: 0 4px; }
-.foot { padding: 50px 20px; font: 400 16px "Russo One", sans-serif; }
-
+/* 9 · Инструкция × Переписка: каждый промпт — сообщение на экране нарисованного телефона */
+:root { --ink: #111; --out: #e3fbc8; --tick: #3e9a3d; --wall: #eef3e6; }
+body { margin: 0; background: #fff; color: var(--ink); font: 18px/1.6 "Jost", sans-serif; }
+a { color: var(--ink); text-decoration-thickness: 2px; }
+.hero, main, .foot { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+.hero { padding-top: 34px; } .draw { max-width: 100%; height: auto; }
+h1 { font-size: clamp(34px, 8vw, 56px); line-height: 1.05; font-weight: 700; margin: 14px 0 16px; }
+.parts { border: 2.5px solid var(--ink); padding: 12px 16px; } .parts p { margin: 0 0 4px; font-weight: 500; }
+.parts ul { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 2px 16px; }
+h2 { font-size: 26px; line-height: 1.2; font-weight: 700; margin: 64px 0 14px; display: flex; gap: 14px; align-items: center; }
+h2 .num { flex: none; width: 62px; height: 62px; border: 3px solid var(--ink); border-radius: 50%; display: grid; place-items: center; font-size: 32px; }
+h3 { font-size: 20px; font-weight: 700; margin: 30px 0 6px; }
+.prompt { position: relative; max-width: 420px; margin: 22px auto; padding: 40px 14px 60px; background: var(--wall); border: 3px solid var(--ink); border-radius: 34px; }
+.prompt::before { content: ""; position: absolute; left: 50%; top: 14px; width: 70px; height: 8px; margin-left: -35px; border-radius: 4px; background: var(--ink); }
+.prompt pre { width: fit-content; max-width: 92%; margin-left: auto; padding: 10px 14px 24px; background: var(--out); border: 2px solid var(--ink); border-radius: 18px 18px 4px 18px; position: relative; }
+.prompt pre::after { content: "✓✓"; position: absolute; right: 12px; bottom: 3px; font: 500 13px "Jost", sans-serif; color: var(--tick); }
+.prompt button { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); border: 2.5px solid var(--ink); border-radius: 20px; background: #fff; padding: 3px 16px; font: 500 15px "Jost", sans-serif; cursor: pointer; white-space: nowrap; }
+.cmd { position: relative; margin: 16px 0; padding: 12px 14px 48px; border: 2.5px solid var(--ink); border-radius: 4px; background: #f2f2f2; }
+.cmd button { position: absolute; left: 14px; bottom: 10px; border: 2.5px solid var(--ink); border-radius: 20px; background: #fff; padding: 2px 12px; font: 500 14px "Jost", sans-serif; cursor: pointer; }
+pre { margin: 0; white-space: pre-wrap; font: 17px/1.5 "Jost", sans-serif; } .cmd pre { font: 15px ui-monospace, Menlo, monospace; }
+:not(pre) > code { font: 0.86em ui-monospace, Menlo, monospace; background: #f2f2f2; padding: 0 4px; }
+.foot { padding: 50px 20px; color: #555; }
+* { box-sizing: border-box; } html { scroll-behavior: smooth; } h2, h3 { scroll-margin-top: 70px; }
 pre code { font: inherit; color: inherit; background: none; padding: 0; border: 0; }
+:not(pre) > code { overflow-wrap: anywhere; } .cmd pre { overflow-wrap: anywhere; }
+ul, ol { padding-left: 22px; } li { margin: 5px 0; }
 button:focus-visible, a:focus-visible { outline: 3px solid currentColor; outline-offset: 2px; }
-html { scroll-behavior: smooth; } * { box-sizing: border-box; } h2, h3 { scroll-margin-top: 12px; }
-:not(pre) > code { overflow-wrap: anywhere; } ul, ol { padding-left: 22px; } li { margin: 5px 0; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; } }
