@@ -1,0 +1,29 @@
+
+/* 13 · «Метро»: шаги — станции на линии, разделы — разные ветки */
+body { margin: 0; background: #f3f4f6; color: #1d1d1f; font: 17px/1.6 "Montserrat", sans-serif; font-weight: 500; }
+a { color: #0072bc; }
+.hero, main, .foot { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+.hero { padding-top: 36px; }
+.m { width: 60px; height: 60px; border-radius: 50%; background: #e42313; color: #fff; display: grid; place-items: center; font: 800 34px "Montserrat", sans-serif; }
+h1 { font: 800 clamp(32px, 8vw, 54px)/1.05 "Montserrat", sans-serif; margin: 18px 0 8px; }
+main > section { --line: #e42313; position: relative; padding-left: 46px; padding-bottom: 8px; }
+main > section::before { content: ""; position: absolute; left: 12px; top: 0; bottom: 0; width: 10px; background: var(--line); }
+main > section:nth-child(6n+2) { --line: #4baf4f; } main > section:nth-child(6n+3) { --line: #0072bc; } main > section:nth-child(6n+4) { --line: #f58220; }
+main > section:nth-child(6n+5) { --line: #8e479c; } main > section:nth-child(6n+6) { --line: #915133; }
+h2 { position: relative; font: 800 24px/1.2 "Montserrat", sans-serif; margin: 0; padding: 40px 0 12px; }
+h2::before { content: ""; position: absolute; left: -45px; top: 38px; width: 28px; height: 28px; border-radius: 50%; background: #fff; border: 7px solid var(--line); }
+h2 .num { color: var(--line); margin-right: 4px; } h2 .num::after { content: "."; }
+h3 { font: 700 19px "Montserrat", sans-serif; margin: 26px 0 6px; }
+.prompt, .cmd { position: relative; margin: 14px 0; padding: 14px 16px 54px; background: #fff; border-radius: 10px; border-left: 6px solid var(--line); }
+.cmd { background: #1d1d1f; color: #fff; }
+pre { margin: 0; white-space: pre-wrap; font: 16px/1.55 "Montserrat", sans-serif; font-weight: 500; } .cmd pre { font: 15px ui-monospace, Menlo, monospace; }
+.prompt button, .cmd button { position: absolute; left: 16px; bottom: 12px; border: 0; border-radius: 20px; background: var(--line); color: #fff; padding: 6px 14px; font: 700 14px "Montserrat", sans-serif; cursor: pointer; }
+:not(pre) > code { font: 0.86em ui-monospace, Menlo, monospace; background: #e3e5e8; padding: 0 4px; border-radius: 4px; }
+.foot { padding: 40px 20px; color: #666; font-size: 14px; }
+
+pre code { font: inherit; color: inherit; background: none; padding: 0; border: 0; }
+button:focus-visible, a:focus-visible { outline: 3px solid currentColor; outline-offset: 2px; }
+html { scroll-behavior: smooth; } * { box-sizing: border-box; } h2, h3 { scroll-margin-top: 12px; }
+:not(pre) > code { overflow-wrap: anywhere; } ul, ol { padding-left: 22px; } li { margin: 5px 0; }
+
+.cmd pre { overflow-wrap: anywhere; }

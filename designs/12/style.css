@@ -1,0 +1,31 @@
+
+/* 12 · «Мастер установки»: каждая часть гайда — окно Windows 95 на бирюзовом рабочем столе */
+:root { --desk: #008080; --grey: #c0c0c0; --navy: #000080; }
+body { margin: 0; background: var(--desk); color: #000; font: 16px/1.55 Tahoma, Verdana, "Segoe UI", sans-serif; }
+a { color: var(--navy); }
+.hero, main, .foot { max-width: 720px; margin: 0 auto; padding: 0 14px; }
+.hero { padding-top: 26px; }
+.win, main > section { background: var(--grey); border: 2px solid; border-color: #fff #404040 #404040 #fff; box-shadow: 1px 1px 0 #000; margin: 22px 0; padding: 0 0 12px; }
+.tb, main > section > h2 { display: flex; justify-content: space-between; align-items: center; margin: 0 0 12px; padding: 3px 6px; background: linear-gradient(90deg, var(--navy), #1084d0); color: #fff; font: 700 15px/1.4 Tahoma, Verdana, sans-serif; }
+main > section > h2::after { content: "✕"; font-size: 12px; background: var(--grey); color: #000; padding: 0 5px; border: 2px solid; border-color: #fff #404040 #404040 #fff; }
+.wbody, main > section > :not(h2) { margin-left: 14px; margin-right: 14px; }
+h1 { font: 700 24px/1.2 Tahoma, Verdana, sans-serif; margin: 6px 0 10px; }
+.bar { height: 20px; border: 2px solid; border-color: #808080 #fff #fff #808080; padding: 2px; }
+.bar i { display: block; height: 100%; width: 0; background: repeating-linear-gradient(90deg, var(--navy) 0 12px, transparent 12px 14px); animation: fill 3s steps(20) forwards; }
+@keyframes fill { to { width: 100%; } } @media (prefers-reduced-motion: reduce) { .bar i { width: 100%; animation: none; } }
+.btns { display: flex; justify-content: flex-end; gap: 8px; }
+.b, .prompt button, .cmd button { background: var(--grey); border: 2px solid; border-color: #fff #404040 #404040 #fff; padding: 3px 14px; font: 14px Tahoma, Verdana, sans-serif; color: #000; cursor: pointer; }
+.prompt button:active, .cmd button:active { border-color: #404040 #fff #fff #404040; }
+h2 .num::after { content: "."; }
+h3 { font: 700 16px Tahoma, Verdana, sans-serif; margin: 20px 0 4px; }
+.prompt, .cmd { position: relative; margin: 12px 0; padding: 10px 12px 48px; background: #fff; border: 2px solid; border-color: #808080 #fff #fff #808080; }
+.cmd { background: #000; color: #c0c0c0; }
+pre { margin: 0; white-space: pre-wrap; font: 15px/1.5 "Courier New", monospace; } .prompt pre { font: 15px/1.5 Tahoma, Verdana, sans-serif; }
+.prompt button, .cmd button { position: absolute; left: 12px; bottom: 10px; }
+:not(pre) > code { font: 0.9em "Courier New", monospace; background: #fff; padding: 0 3px; }
+.foot { color: #fff; font-size: 13px; padding: 20px 14px 50px; }
+
+pre code { font: inherit; color: inherit; background: none; padding: 0; border: 0; }
+button:focus-visible, a:focus-visible { outline: 3px solid currentColor; outline-offset: 2px; }
+html { scroll-behavior: smooth; } * { box-sizing: border-box; } h2, h3 { scroll-margin-top: 12px; }
+:not(pre) > code { overflow-wrap: anywhere; } ul, ol { padding-left: 22px; } li { margin: 5px 0; }

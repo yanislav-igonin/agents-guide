@@ -1,0 +1,31 @@
+
+/* 7 · «Меловая доска»: как меню в баре — для бармена с покерным клубом */
+:root { --board: #2f4438; --chalk: #f1f0e6; --yel: #f6e38a; --pink: #f5aec0; --wood: #7a4e2a; }
+body { margin: 0; color: var(--chalk); font: 18px/1.6 "Arsenal", sans-serif; background: var(--board);
+  background-image: radial-gradient(ellipse at 20% 10%, #ffffff12, transparent 50%), radial-gradient(ellipse at 80% 60%, #ffffff0d, transparent 45%);
+  border-top: 14px solid var(--wood); border-bottom: 14px solid var(--wood); }
+a { color: var(--yel); }
+.hero, main, .foot { max-width: 680px; margin: 0 auto; padding: 0 20px; }
+.hero { padding-top: 30px; text-align: center; }
+.today { font: 26px "Neucha", cursive; color: var(--pink); margin: 0; }
+h1, h2, h3 { font-family: "Neucha", cursive; font-weight: 400; }
+h1 { font-size: clamp(40px, 10vw, 66px); line-height: 1; margin: 6px 0 18px; text-shadow: 0 0 1px #fff8; }
+.menu { list-style: none; padding: 0; margin: 0 auto; max-width: 420px; font: 22px "Neucha", cursive; text-align: left; }
+.menu li { display: flex; gap: 8px; } .menu li span { flex: 1; border-bottom: 2px dotted #f1f0e666; } .menu b { color: var(--yel); font-weight: 400; }
+h2 { font-size: 36px; line-height: 1.1; margin: 54px 0 12px; color: var(--yel); }
+h2 .num { display: inline-block; width: 1.2em; text-align: center; border: 2px solid var(--yel); border-radius: 50%; margin-right: 6px; }
+h3 { font-size: 27px; margin: 28px 0 6px; color: var(--pink); }
+.prompt, .cmd { position: relative; margin: 16px 0; padding: 14px 16px 54px; border: 2px dashed #f1f0e6aa; border-radius: 6px; }
+.cmd { border-style: solid; border-color: #f1f0e655; }
+pre { margin: 0; white-space: pre-wrap; font: 19px/1.5 "Neucha", cursive; }
+.cmd pre { font: 15px/1.5 ui-monospace, Menlo, monospace; color: var(--yel); }
+.prompt button, .cmd button { position: absolute; left: 16px; bottom: 12px; border: 2px solid var(--chalk); border-radius: 20px; background: none; color: var(--chalk); padding: 4px 14px; font: 18px "Neucha", cursive; cursor: pointer; }
+:not(pre) > code { font: 0.85em ui-monospace, Menlo, monospace; color: var(--yel); }
+.s-оглавление ul { list-style: none; padding: 0; columns: 2; font: 20px "Neucha", cursive; } .s-оглавление li { break-inside: avoid; }
+@media (max-width: 560px) { .s-оглавление ul { columns: 1; } }
+.foot { font: 20px "Neucha", cursive; text-align: center; padding: 40px 20px; color: var(--pink); }
+
+pre code { font: inherit; color: inherit; background: none; padding: 0; border: 0; }
+button:focus-visible, a:focus-visible { outline: 3px solid currentColor; outline-offset: 2px; }
+html { scroll-behavior: smooth; } * { box-sizing: border-box; } h2, h3 { scroll-margin-top: 12px; }
+:not(pre) > code { overflow-wrap: anywhere; } ul, ol { padding-left: 22px; } li { margin: 5px 0; }

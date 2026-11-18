@@ -1,0 +1,27 @@
+
+/* 15 · «Стикерпак»: заголовки и промпты — вырезанные наклейки с белой обводкой */
+:root { --bg: #e7e1ff; --y: #ffd84d; --m: #7be0ad; --p: #ff9ecf; --b: #8ec5ff; --ink: #20123a; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.6 "Rubik", sans-serif; }
+a { color: #5b2bd6; }
+.hero, main, .foot { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+.hero { position: relative; padding: 40px 20px 30px; }
+h1 { font: 400 clamp(40px, 11vw, 78px)/1 "Rubik Bubbles", sans-serif; margin: 0 0 18px; color: #fff; -webkit-text-stroke: 3px var(--ink); paint-order: stroke fill; }
+.st { display: inline-block; margin: 4px 6px 0 0; padding: 6px 16px; border-radius: 30px; border: 5px solid #fff; box-shadow: 0 3px 6px #20123a33; font: 700 18px "Rubik", sans-serif; }
+.s1 { background: var(--y); transform: rotate(-6deg); } .s2 { background: var(--m); transform: rotate(4deg); } .s3 { background: var(--p); transform: rotate(-2deg); } .s4 { background: var(--b); transform: rotate(7deg); }
+h2 { display: inline-block; font: 400 clamp(26px, 6vw, 36px)/1.15 "Rubik Bubbles", sans-serif; margin: 52px 0 14px; padding: 6px 18px; border-radius: 18px; border: 6px solid #fff;
+  box-shadow: 0 4px 8px #20123a33; background: var(--y); transform: rotate(-1.5deg); }
+main > section:nth-child(4n+2) h2 { background: var(--m); transform: rotate(1.2deg); } main > section:nth-child(4n+3) h2 { background: var(--p); }
+main > section:nth-child(4n+4) h2 { background: var(--b); transform: rotate(1.8deg); }
+h3 { font: 700 20px "Rubik", sans-serif; margin: 28px 0 6px; }
+.prompt, .cmd { position: relative; margin: 18px 0; padding: 16px 16px 56px; background: #fff; border-radius: 22px; border: 6px solid #fff; box-shadow: 0 0 0 3px var(--ink), 0 6px 0 3px var(--ink); }
+.cmd { background: var(--ink); color: #fff; box-shadow: 0 6px 10px #20123a44; }
+pre { margin: 0; white-space: pre-wrap; font: 16px/1.55 "Rubik", sans-serif; } .cmd pre { font: 15px ui-monospace, Menlo, monospace; }
+.prompt button, .cmd button { position: absolute; left: 16px; bottom: 12px; border: 3px solid var(--ink); border-radius: 20px; background: var(--y); color: var(--ink); padding: 4px 14px; font: 700 14px "Rubik", sans-serif; cursor: pointer; }
+:not(pre) > code { font: 0.86em ui-monospace, Menlo, monospace; background: #fff; padding: 0 5px; border-radius: 6px; }
+.s-tl-dr ol { background: #fff; border-radius: 22px; padding: 16px 16px 16px 40px; }
+.foot { padding: 50px 20px; color: #5a4a80; font-size: 14px; }
+
+pre code { font: inherit; color: inherit; background: none; padding: 0; border: 0; }
+button:focus-visible, a:focus-visible { outline: 3px solid currentColor; outline-offset: 2px; }
+html { scroll-behavior: smooth; } * { box-sizing: border-box; } h2, h3 { scroll-margin-top: 12px; }
+:not(pre) > code { overflow-wrap: anywhere; } ul, ol { padding-left: 22px; } li { margin: 5px 0; }
