@@ -1,26 +1,57 @@
-:root { --bg: #0e0e10; --card: #17171b; --text: #e8e6e3; --dim: #9a978f; --accent: #c6f432; --line: #26262c; }
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { margin: 0; background: var(--bg); color: var(--text); font: 17px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
-main { max-width: 720px; margin: 0 auto; padding: 32px 18px 64px; }
-a { color: var(--accent); }
-h1 { font-size: clamp(32px, 8vw, 52px); line-height: 1.05; margin: 8px 0 24px; letter-spacing: -0.02em; }
-h2 { font-size: 26px; line-height: 1.2; margin: 48px 0 12px; padding-top: 28px; border-top: 1px solid var(--line); scroll-margin-top: 12px; }
-h3 { font-size: 19px; margin: 28px 0 8px; scroll-margin-top: 12px; }
-.kicker { color: var(--accent); text-transform: uppercase; font-size: 13px; letter-spacing: 0.12em; margin: 0; }
-code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.88em; background: var(--card); border: 1px solid var(--line); border-radius: 5px; padding: 1px 5px; overflow-wrap: anywhere; }
-pre { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 14px; overflow-x: auto; margin: 10px 0; }
-pre code { border: 0; padding: 0; background: none; font-size: 14px; }
-.prompt { position: relative; margin: 12px 0; }
-.prompt pre { white-space: pre-wrap; padding-bottom: 52px; border-color: #3a4a12; }
-.prompt button { position: absolute; right: 10px; bottom: 10px; background: var(--accent); color: #000; border: 0; border-radius: 7px; padding: 7px 12px; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; }
-ul, ol { padding-left: 22px; }
-li { margin: 5px 0; }
-li > ul, li > ol { margin: 4px 0; }
-/* TL;DR and table of contents right after the title */
-h2#tl-dr + ol { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px 14px 38px; }
-h2#оглавление + ul { columns: 2; column-gap: 24px; list-style: none; padding: 0; font-size: 15px; }
-h2#оглавление + ul li { break-inside: avoid; }
-@media (max-width: 520px) { h2#оглавление + ul { columns: 1; } }
-footer { border-top: 1px solid var(--line); margin-top: 48px; padding-top: 20px; }
-.small { color: var(--dim); font-size: 14px; }
+/* 10 · Микс 4×6: ночная шапка-чат поверх пиксельного города, дальше светлый мануал из 4 */
+:root { --ink: #111; --pink: #ff5fa2; --lamp: #ffd27a; --deep: #120d2e; --in: #2d2266; --text: #ece8ff; }
+body { margin: 0; background: #fff; color: var(--ink); font: 18px/1.6 "Jost", sans-serif; }
+a { color: var(--ink); text-decoration-color: var(--pink); text-decoration-thickness: 3px; }
+.chatbar { position: sticky; top: 0; z-index: 3; display: flex; gap: 12px; align-items: center; padding: 9px 16px; background: var(--deep); color: var(--text); border-bottom: 3px solid var(--in); }
+.ava { width: 38px; height: 38px; background: var(--pink); color: var(--deep); display: grid; place-items: center; font: 700 21px "Pixelify Sans", sans-serif; box-shadow: 3px 3px 0 var(--lamp); }
+.chatbar b { display: block; line-height: 1.2; } .chatbar span { color: var(--lamp); font-size: 14px; }
+.night { color: var(--text); background: #1b1440 url(city.png) center / cover; image-rendering: pixelated; position: relative; }
+.night::before { content: ""; position: absolute; inset: 0; background: linear-gradient(#120d2ecc, #120d2e99 60%, #120d2ee6); }
+.thread { position: relative; max-width: 620px; margin: 0 auto; padding: 8px 14px 34px; font-size: 16px; line-height: 1.5; }
+.date { display: table; margin: 16px auto 12px; padding: 3px 14px; background: var(--deep); border: 3px solid var(--in); font-size: 14px; font-weight: 500; }
+.msg { position: relative; width: fit-content; max-width: 88%; margin: 7px 0; padding: 9px 13px;
+  clip-path: polygon(0 6px, 6px 6px, 6px 0, calc(100% - 6px) 0, calc(100% - 6px) 6px, 100% 6px, 100% calc(100% - 6px), calc(100% - 6px) calc(100% - 6px), calc(100% - 6px) 100%, 6px 100%, 6px calc(100% - 6px), 0 calc(100% - 6px)); }
+.msg p { margin: 0; } .in { background: var(--in); } .out { margin-left: auto; background: var(--pink); color: var(--deep); font-weight: 500; padding-bottom: 22px; }
+.tk { position: absolute; right: 12px; bottom: 3px; font-size: 12px; }
+.title { padding: 14px 16px; }
+.title h1 { font: 800 clamp(30px, 7vw, 46px)/1.05 "Jost", sans-serif; margin: 0 0 8px; color: #fff; text-shadow: 3px 3px 0 var(--pink); }
+.kit { max-width: 720px; margin: 0 auto; padding: 24px 20px 0; }
+.sprite { display: block; width: 220px; height: auto; image-rendering: pixelated; margin: 0 auto 6px; }
+.thread .msg { animation: pop .25s steps(3) both; } .thread .msg:nth-of-type(2) { animation-delay: .5s; } .thread .title { animation-delay: 1.1s; }
+@keyframes pop { from { opacity: 0; transform: translateY(8px); } }
+
+
+body { margin: 0; background: #fff; color: var(--ink); font: 18px/1.6 "Jost", sans-serif; }
+a { color: var(--ink); text-decoration-color: var(--pink); text-decoration-thickness: 3px; }
+main, .foot { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+
+
+.parts { border: 4px solid var(--ink); box-shadow: 0 0 0 4px #fff, 0 0 0 8px var(--ink); padding: 12px 16px; margin: 8px; }
+.parts p { margin: 0 0 4px; font: 700 18px "Pixelify Sans", sans-serif; }
+.parts ul { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 2px 16px; }
+.parts b { font-family: "Pixelify Sans", sans-serif; color: var(--pink); }
+h2 { font-size: 26px; line-height: 1.2; font-weight: 700; margin: 64px 0 14px; display: flex; gap: 14px; align-items: center; }
+h2 .num { flex: none; position: relative; width: 60px; height: 60px; display: grid; place-items: center; background: var(--pink); color: #fff;
+  font: 700 34px "Pixelify Sans", sans-serif; box-shadow: 4px 4px 0 var(--ink); }
+h2 .num::before { content: "LV"; position: absolute; top: -18px; left: 0; font-size: 13px; color: var(--ink); }
+h3 { font-size: 20px; font-weight: 700; margin: 30px 0 6px; }
+.prompt, .cmd { position: relative; margin: 22px 8px; padding: 14px 16px 54px; background: #fff; border: 4px solid var(--ink); box-shadow: 0 0 0 4px #fff, 0 0 0 8px var(--ink); }
+.cmd { background: #fff7e0; }
+pre { margin: 0; white-space: pre-wrap; font: 17px/1.5 "Jost", sans-serif; } .cmd pre { font: 15px ui-monospace, Menlo, monospace; }
+.prompt button, .cmd button { position: absolute; right: 12px; bottom: 10px; border: 0; padding: 6px 12px; background: var(--pink); color: #fff; font: 700 15px "Pixelify Sans", sans-serif; cursor: pointer; box-shadow: 3px 3px 0 var(--ink); }
+.prompt button::before { content: "▶ "; }
+:not(pre) > code { font: 0.86em ui-monospace, Menlo, monospace; background: var(--lamp); padding: 0 4px; }
+.s-tl-dr ol { padding-left: 26px; } .s-tl-dr li::marker { font: 700 20px "Pixelify Sans", sans-serif; color: var(--pink); }
+.foot { padding: 50px 20px; color: #555; }
+* { box-sizing: border-box; } html { scroll-behavior: smooth; } h2, h3 { scroll-margin-top: 70px; }
+pre code { font: inherit; color: inherit; background: none; padding: 0; border: 0; }
+:not(pre) > code { overflow-wrap: anywhere; } .cmd pre { overflow-wrap: anywhere; }
+ul, ol { padding-left: 22px; } li { margin: 5px 0; }
+button:focus-visible, a:focus-visible { outline: 3px solid currentColor; outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; } }
+
+.prompt button, .cmd button { font-family: "Jost", sans-serif; }
+
+.parts p { font-family: "Jost", sans-serif; }
+
+.parts b { font-family: "Jost", sans-serif; font-weight: 700; }
